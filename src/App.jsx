@@ -82,7 +82,7 @@ const App = () => {
         <button onClick={handleSpeak}>Speak</button>
         <Link to="/keyboard" className="keyboard-link">Open Keyboard</Link>
         <div className="settings-symbol" style={{ position: 'absolute', top: '10px', right: '10px' }}>
-          <img src="/aacDevice/public/settings.png" alt="Settings" />
+          <img src="/settings.jpg" alt="Settings" />
           <p>Settings</p>
         </div>
         
