@@ -4,20 +4,20 @@ import Keyboard from './assets/keyboard.jsx';
 import './App.css';
 
 const symbols = [
-  { id: 1, text: 'more', video: "/more_voice.mp4" },
+  [{ id: 1, text: 'more', video: "/more_voice.mp4" },
   { id: 2, text: 'drink', image: '/drink.png'},
   { id: 3, text: 'burger', image: '/burger.png' },
   { id: 4, text: 'swim', image: '/swim.png'},
   { id: 5, text: 'yes', video: '/yes.mp4' },
   { id: 6, text: 'no', video: '/no.mp4'},
   { id: 7, text: 'like', image: '/like.png'},
-  { id: 8, text: 'I', image: '/I.png'},
-  { id: 9, text: 'help', video: '/help.mp4'},
+  { id: 8, text: 'I', image: '/I.png'},],
+  [{ id: 9, text: 'help', video: '/help.mp4'},
   { id: 10, text: 'pee', image: '/peePecs.png'},
   { id: 11, text: 'sleep', video: '/sleep.mp4'},
   { id: 12, text: 'eat', image: '/eat.jpg'},
   { id: 13, text: 'are', image: '/are.jpg'},
-  { id: 14, text: 'went', image: '/went.jpg'},
+  { id: 14, text: 'went', image: '/went.jpg'},],
 ];
 
 const App = () => {

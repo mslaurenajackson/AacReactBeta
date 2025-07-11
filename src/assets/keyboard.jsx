@@ -47,7 +47,11 @@ function Keyboard() {
   const handleSpaceBar = () => {
     setCommunication((prev) => [...prev, ' ']); // Add a space to the communication state
   };
-
+  const handleDelete = (symbolToDelete) => {
+    setCommunication((prev) =>
+      prev.filter((symbol) => symbol == symbolToDelete) //fixed the delete function to remove the accidental !
+    );
+  };
   return (
       <>
   <div
@@ -152,7 +156,23 @@ function Keyboard() {
   Space Bar
 </button>
   </div>
-
+<div>
+  <button
+          onClick={handleDelete}
+          style={{
+            marginTop: "20px",
+            padding: "10px 20px",
+            fontSize: "16px",
+            backgroundColor: "red",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </>
   );
 }
