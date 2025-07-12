@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import App from './App.css'
-import { Howl } from 'howler';
+import { useState } from 'react';
+import './App.css'; // Import CSS style
 
 
 const playSound = (letter) => {
-  const sound = new Howl({
+  const sound = ({
     src: [`https://api.voicerss.org/?key=YOUR_API_KEY&hl=en-us&src=${letter}`],
     format: ['mp3'],
   });
@@ -16,14 +15,12 @@ function Keyboard() {
   const [communication, setCommunication] = useState([]);
 
   // used nested arrays to immulate a keyboard layout
- 
   const keyboardRows = [
                       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,],
             ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
                ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
                     ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '?']
   ];
-
   const handleDragStart = (letter) => {
     setDraggedLetter(letter);
   };
@@ -172,6 +169,14 @@ function Keyboard() {
         >
           Delete
         </button>
+        <div><Link to="/App" className="btn btn-primary">Open AAC Board</Link></div>
+        <div className="settings-symbol" style={{ position: 'absolute', top: '10px', right: '10px' }}>
+          <img src="/settings.jpg" alt="Settings" />
+          <p>Settings</p>
+        </div>
+        <footer className="watermark">
+  © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
+</footer>
       </div>
     </>
   );
