@@ -1,13 +1,14 @@
 import React, {  useState } from 'react';
 import { Link } from 'react-router-dom'; // Use Link for navigation
 import './App.css'; // Import CSS style
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const symbols = [
-  { id: 1, text: 'more', video: "/more_voice.mp4" },
+  { id: 1, text: 'yes', video: '/yes.mp4' },
   { id: 2, text: 'drink', image: '/drink.png'},
   { id: 3, text: 'burger', image: '/burger.png' },
   { id: 4, text: 'swim', image: '/swim.png'},
-  { id: 5, text: 'yes', video: '/yes.mp4' },
+  { id: 5, text: 'more', video: '/more.mp4' },
   { id: 6, text: 'no', video: '/no.mp4'},
   { id: 7, text: 'like', image: '/like.png'},
   { id: 8, text: 'I', image: '/I.png'},
@@ -17,48 +18,41 @@ const symbols = [
   { id: 12, text: 'eat', image: '/eat.jpg'},
   { id: 13, text: 'are', image: '/are.jpg'},
   { id: 14, text: 'went', image: '/went.jpg'},
+  {id: 15, text: 'give', image: '/give.jpg'},
 ];
 
 function App() {
-  const [sentence, setSentence, setCommunication] = useState([]);
+  const [sentence, setSentence] = useState([]);
 
-  const handleSymbolClick = (symbol) => {
-    setSentence((prev) => [...prev, symbol.text]);
+  const handleSymbolClick = (symbols) => {
+    setSentence((prev) => [...prev, symbols.text]);
 
-    const utterance = new SpeechSynthesisUtterance(symbol.text);
-    speechSynthesis.speak(utterance);
+    const sentence = new SpeechSynthesisUtterance(symbols.text);
+    speechSynthesis.speak(sentence);
   };
 
-  const handleSpeak = () => {
-    const utterance = new SpeechSynthesisUtterance(sentence.join(' '));
-    speechSynthesis.speak(utterance);
+  const handleTalk = () => {
+    const sentence = new SpeechSynthesisUtterance(sentence.join(' '));
+    speechSynthesis.talk(sentence);
   };
-  
-  const handleSpaceBar = () => {
-    setCommunication((prev) => [...prev, ' ']); // Add a space to the commincation area
+
+  const handleClear = () => {
+    setSentence([]);
   };
-  
+
   return (
-    <>
-      <div className="dashboard">
-      <div className="output-area">{sentence.join(' ')}</div>
-      <div className="btn btn-primary" onClick={handleSpeak}>
-      <button
-      onClick={() => handleSymbolClick(symbols)}
-      style={{
-        marginTop: '20px',
-        padding: '10px 20px',
-        fontSize: '16px',
-        backgroundColor: '#007BFF',
-        color: 'white',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-      }}
-    >
-      Speak
-    </button></div>
-    {symbols.image && (
+    <div className="container py-4"> 
+      <h1 className="text-center mb-4">AAC Device</h1>
+
+      <div className="row g-3">
+        {symbols.map((symbols) => (
+          <div className="col-6 col-md-3" key={symbols.id}>
+            <div
+              className="card text-center h-100 shadow-sm"
+              onClick={() => handleSymbolClick(symbols)}
+              style={{ cursor: 'pointer' }}
+            >
+              {symbols.image && (
                 <img src={symbols.image} alt={symbols.text} className="card-img-top" />
               )}
               {symbols.video && (
@@ -67,48 +61,31 @@ function App() {
               <div className="card-body">
                 <p className="card-text fw-bold">{symbols.text}</p>
               </div>
-      <div>
-    )
-    <button
-  onClick={handleSpaceBar}
-  style={{
-    marginTop: '20px',
-    padding: '10px 20px',
-    fontSize: '16px',
-    backgroundColor: 'white',
-    color: 'black',
-    border: '1px solid #999',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  }}
->
-  Space Bar
-</button>
-
-  </div>
-        <div className="symbol-grid">
-          {symbols.map((symbol) => (
-            <div key={symbol.id} className="symbol" onTouchStart={() => handleSymbolClick(symbol)}>
-              {symbol.image && <img src={symbol.image} alt={symbol.text} />}
-              {symbol.video && <video src={symbol.video} controls />}
-              <p>{symbol.text}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
 
-  <div><Link to="/Keyboard" className="Keyboard">Open Keyboard</Link></div>
-        
-        <div className="settings-symbol" style={{ position: 'absolute', top: '10px', right: '10px' }}>
-         <button> <img src="/settings.jpg" alt="Settings" /></button>
-          <p>Settings</p>
+      <div className="mt-4"> 
+        <h5>Sentence:</h5>
+        <div className="p-3 border bg-light rounded">{sentence.join(' ')}</div>
+
+        <div className="mt-3 d-flex gap-3">
+          <button className="btn btn-primary" onClick={handleTalk}><image src="Speak_Button.png" alt="Speak" style={{ width: '24px', marginRight: '8px' }}>Speak</image></button>
+          <button className="btn btn-outline-danger" onClick={handleClear}>Clear</button>
+          <button className="btn btn-secondary" onClick={() => setSentence([])}>
+  <img src="settings.jpg" alt="Settings" style={{ width: '24px', marginRight: '8px' }} />
+  Settings
+</button>
         </div>
-        <footer className="watermark">
+      </div>
+      <footer className="watermark">
   © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
 </footer>
-
-      </div>
-    </>
+<div><Link to="/Keyboard" className="btn btn-primary">Open Keyboard</Link></div>
+    </div>
   );
-};
+}
+
 
 export default App;
