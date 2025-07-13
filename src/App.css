@@ -1,20 +1,4 @@
-.vibrate {
-  animation: vibrate 0.2s linear infinite;
-}
-@keyframes vibrate {
-  0%, 100% { transform: translate(0); }
-  25% { transform: translate(-2px, 2px); }
-  50% { transform: translate(2px, -2px); }
-  75% { transform: translate(-2px, -2px); }
-}
 
-.animate-more {
-  animation: hands-together 1s ease-in-out;
-}
-@keyframes hands-together {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
 .symbol-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
@@ -65,7 +49,7 @@
   color: #333;
 }
 .keyboard {
-  background-color: #fff;
+  background-color:black;
   border-radius: 20px;
   padding: 20px;
   margin: 20px auto;

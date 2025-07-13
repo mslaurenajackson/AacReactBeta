@@ -19,41 +19,32 @@ const symbols = [
   { id: 14, text: 'went', image: '/went.jpg'},
 ];
 
-const App = () => {
-  const [sentence, setSentence] = useState([]);
+function App() {
+  const [sentence, setSentence, setCommunication] = useState([]);
 
   const handleSymbolClick = (symbol) => {
-    setSentence([...sentence, symbol.text]); // Used append the clicked symbol's text to the sentence array
-    const utterance = new SpeechSynthesisUtterance(symbol.text);
-    speechSynthesis.speak(utterance); // Play the associated sound
-  
-    if (symbol.text === 'more') {
-      document.querySelector('.display').classList.add('animate-more');
-      setTimeout(() => {
-        document.querySelector('.display').classList.remove('animate-more');
-      }, 1000);
-    }
-  };
+    setSentence((prev) => [...prev, symbol.text]);
 
+    const utterance = new SpeechSynthesisUtterance(symbol.text);
+    speechSynthesis.speak(utterance);
+  };
 
   const handleSpeak = () => {
-    const utterance = new SpeechSynthesisUtterance(sentence.join(''));
-    speechSynthesis.speak(utterance); //allows API to speak the sentence
-    utterance.onend = () => { //clears the communication area after speaking
-      setSentence([]);
+    const utterance = new SpeechSynthesisUtterance(sentence.join(' '));
+    speechSynthesis.speak(utterance);
   };
-};
-
+  
   const handleSpaceBar = () => {
-    setSentence((prev) => [...prev, ' ']); // Add a space to the communication state
+    setCommunication((prev) => [...prev, ' ']); // Add a space to the commincation area
   };
   
   return (
     <>
       <div className="dashboard">
       <div className="output-area">{sentence.join(' ')}</div>
+      <div className="btn btn-primary" onClick={handleSpeak}>
       <button
-      onClick={handleSpeak}
+      onClick={() => handleSymbolClick(symbols)}
       style={{
         marginTop: '20px',
         padding: '10px 20px',
@@ -66,8 +57,18 @@ const App = () => {
       }}
     >
       Speak
-    </button>
+    </button></div>
+    {symbols.image && (
+                <img src={symbols.image} alt={symbols.text} className="card-img-top" />
+              )}
+              {symbols.video && (
+                <video src={symbols.video} className="card-img-top" controls />
+              )}
+              <div className="card-body">
+                <p className="card-text fw-bold">{symbols.text}</p>
+              </div>
       <div>
+    )
     <button
   onClick={handleSpaceBar}
   style={{
@@ -83,6 +84,7 @@ const App = () => {
 >
   Space Bar
 </button>
+
   </div>
         <div className="symbol-grid">
           {symbols.map((symbol) => (
@@ -94,7 +96,7 @@ const App = () => {
           ))}
         </div>
 
-  <div><Link to="/Keyboard" className="btn btn-primary">Open Keyboard</Link></div>
+  <div><Link to="/Keyboard" className="Keyboard">Open Keyboard</Link></div>
         
         <div className="settings-symbol" style={{ position: 'absolute', top: '10px', right: '10px' }}>
          <button> <img src="/settings.jpg" alt="Settings" /></button>
