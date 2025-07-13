@@ -90,3 +90,5 @@ function App() {
 
 
 export default App;
+
+//Dedicated to my grandmother Matilda White, who had a stroke in 1993. Dedicated in memory of my mother,Alethea W. Jackson, 1944-2025
