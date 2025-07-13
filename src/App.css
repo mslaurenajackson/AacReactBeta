@@ -3,6 +3,7 @@
   max-width: none;
   margin: 0 auto;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .symbols {
@@ -266,4 +267,12 @@ h1 {
 .row.g-3 {
   overflow-y: auto;
   flex: 1;
+}
+footer.watermark {
+  position: relative; /* Keeps it inside the container */
+  font-size: 0.8em;
+  margin-top: auto;
+  padding: 0.5rem;
+  text-align: center;
+  color: white
 }

@@ -12,7 +12,7 @@ const playSound = (letter) => {
 };
 
 function Keyboard() {
-  const [draggedLetter, setDraggedLetter] = useState('');
+  const [draggedLetter, setDraggedLetter] = useState("");
   const [communication, setCommunication] = useState([]);
 
   // used nested arrays to immulate a keyboard layout

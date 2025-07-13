@@ -80,9 +80,10 @@ function App() {
         </div>
       </div>
       <footer className="watermark">
+      <div><Link to="/Keyboard" className="btn btn-primary">Open Keyboard</Link></div>
   © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
+
 </footer>
-<div><Link to="/Keyboard" className="btn btn-primary">Open Keyboard</Link></div>
     </div>
   );
 }
