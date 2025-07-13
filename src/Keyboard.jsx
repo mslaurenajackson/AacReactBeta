@@ -64,7 +64,7 @@ function Keyboard() {
           backgroundColor: "#f5f5f5",
         }}
       >
-        <h1 style={{ textAlign: "center" }}>AAC Board</h1>
+        <h1 style={{ textAlign: "center", color: "black", }}>AAC Board</h1>
 
         <div className="keyboard">
           {keyboardRows.map((row, rowIndex) => (
