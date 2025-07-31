@@ -1,59 +1,51 @@
 import React, { useState } from 'react';
 import Navbar from './components/NavBar';
-import './SymbolBoard.css';
+import SymbolSearch from './SymbolSearch'; 
+import { fetchSymbols } from './utils/symbolsAPI';  // API in utils/symbolsApi.js
 
-const SymbolBoard = () => {
+ function SymbolBoard() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [symbols, setSymbols] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [symbols, setSymbols]      = useState([]);
+  const [loading, setLoading]      = useState(false);
 
-  const apiKey = import.meta.env.VITE_OPENSYMBOLS_API_KEY;
-
-  const fetchSymbols = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!searchTerm) return;
+
     setLoading(true);
     try {
-      const response = await fetch(
-        `https://www.opensymbols.org/api/v1/symbols/search?q=${encodeURIComponent(
-          searchTerm
-        )}&apikey=${apiKey}`
-      );
-
-      const data = await response.json();
-      setSymbols(data.symbols || []);
-    } catch (error) {
-      console.error('Error fetching symbols:', error);
+      const results = await fetchSymbols(searchTerm);
+      setSymbols(results);
+    } catch (err) {
+      console.error('Error fetching symbols:', err);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetchSymbols();
   };
 
   return (
     <div className="symbol-board">
+      <Navbar />
+
       <h2>Search Symbols</h2>
       <form onSubmit={handleSubmit} className="symbol-form">
         <input
-          type="text"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search for a symbol..."
+          onChange={e => setSearchTerm(e.target.value)}
+          placeholder="Search for a symbol…"
         />
         <button type="submit">Search</button>
       </form>
 
-      {loading && <p>Loading...</p>}
+      {loading && <p>Loading…</p>}
 
       <div className="symbol-grid">
-        {symbols.map((symbol) => (
-          <SymbolCard key={symbol.id} symbol={symbol} />
+        {symbols.map(sym => (
+          <SymbolCard key={sym.id} symbol={sym} />
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default SymbolBoard;
