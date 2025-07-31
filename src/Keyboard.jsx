@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Howl } from "howler";
+import Navbar from "./components/NavBar";
 import './Keyboard.css';
 
 const playSound = (letter) => {

@@ -1,6 +1,7 @@
 import React, {  useState } from 'react';
 import { Link } from 'react-router-dom'; // Use Link for navigation
-import './App.css'; // Import CSS style
+import './App.css'; 
+import App from './App.jsx';
 import Navbar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,7 +24,7 @@ const symbols = [
   {id: 15, text: 'give', image: '/give.jpg'},
 ];
 
-function App() {
+function HomePage() {
   const [sentence, setSentence] = useState([]);
 
   const handleSymbolClick = (symbols) => {
@@ -88,11 +89,6 @@ function App() {
         </div>
       </div>
       <footer className="watermark">
-        <div>
-          <Link to="/Keyboard" className="btn btn-primary">
-            Open Keyboard
-          </Link>
-        </div>
         © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
       </footer>
     </div>
@@ -100,6 +96,6 @@ function App() {
 }
 
 
-export default App;
+export default HomePage;
 
 //Dedicated to my grandmother Matilda White, who had a stroke in 1993. Dedicated in memory of my mother,Alethea W. Jackson, 1944-2025

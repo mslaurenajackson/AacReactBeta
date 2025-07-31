@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './components/NavBar';
 import './SymbolBoard.css';
 
 const SymbolBoard = () => {
@@ -17,6 +18,7 @@ const SymbolBoard = () => {
           searchTerm
         )}&apikey=${apiKey}`
       );
+
       const data = await response.json();
       setSymbols(data.symbols || []);
     } catch (error) {

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import SymbolSearch from './SymbolSearch';
+import Navbar from './components/NavBar';
 
 function UserSymbolPage() {
   const [mySymbols, setMySymbols] = useState([]);
 
   return (
+    <>
+    <Navbar />
     <div className= "user-symbol-page">
       <h2>My Symbols</h2>
       <SymbolSearch onSelect={(s) => setMySymbols((prev) => [...prev, s])} />
@@ -18,6 +20,7 @@ function UserSymbolPage() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 export default UserSymbolPage;

@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import Keyboard from './keyboard';
 import Settings from './Settings';
 import SymbolBoard from './SymbolBoard'; 
+import UserSymbolPage from './UserSymbolPage';
 
 
 
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Route path="/" element={<HomePage />} />
     <Route path="/Keyboard" element={<Keyboard />} />
     <Route path="/gullah" element={<App />} />
-    <Route path="/symbols" element={<SymbolBoard />} />
+    <Route path='/Settings' element={<Settings />} />
+    <Route path="/UserSymbolPage" element={<UserSymbolPage />} />
+    <Route path="/SymbolBoard" element={<SymbolBoard />} />
     <Route
   path="/Settings"
   element={

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const symbols = [ 
@@ -104,20 +105,22 @@ function App() {
             <button className="btn btn-primary" onClick={handleSpeak}>
               Speak
             </button>
-            <button className="btn btn-outline-danger" onClick={handleClear}>
+            <button className="btn btn-light border border-dark text-dark" onClick={handleClear}>
               Clear
             </button>
-            <button
-              className="btn btn-secondary"
-              onClick={() => setSentence([])}
-            >
-              <img
-                src="settings.jpg"
-                alt="Settings"
-                style={{ width: '24px', marginRight: '8px' }}
-              />
-              Settings
-            </button>
+            <Link to="/Settings" className="btn btn-secondary d-flex align-items-center">
+              <button
+                className="btn btn-secondary"
+                onClick={() => setSentence([])}
+              >
+                <img
+                  src="settings.jpg"
+                  alt="Settings"
+                  style={{ width: '24px', marginRight: '8px' }}
+                />
+                Settings
+              </button>
+            </Link>
           </div>
         </div>
   
