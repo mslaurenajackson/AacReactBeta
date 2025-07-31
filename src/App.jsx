@@ -1,39 +1,41 @@
-import React, {  useState } from 'react';
-import { Link } from 'react-router-dom'; // Use Link for navigation
-import './App.css'; // Import CSS style
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const symbols = [
-  { id: 1, text: 'yes', video: '/yes.mp4' },
-  { id: 2, text: 'drink', image: '/drink.png'},
-  { id: 3, text: 'burger', image: '/burger.png' },
-  { id: 4, text: 'swim', image: '/swim.png'},
-  { id: 5, text: 'more', video: '/more.mp4' },
-  { id: 6, text: 'no', video: '/no.mp4'},
-  { id: 7, text: 'like', image: '/like.png'},
-  { id: 8, text: 'I', image: '/I.png'},
-  { id: 9, text: 'help', video: '/help.mp4'},
-  { id: 10, text: 'pee', image: '/peePecs.png'},
-  { id: 11, text: 'sleep', video: '/sleep.mp4'},
-  { id: 12, text: 'eat', image: '/eat.jpg'},
-  { id: 13, text: 'are', image: '/are.jpg'},
-  { id: 14, text: 'went', image: '/went.jpg'},
-  {id: 15, text: 'give', image: '/give.jpg'},
+const symbols = [ 
+  { id: 1, text: 'Gullah Dialect', image: 'Gullah_File.jpg' },
+  { id: 2, text: 'Collard Greens', image: 'collardGreens.png' },
+  { id: 3, text: 'grits', image: 'grits.png' },
+  { id: 4, text: 'yes', video: 'yes.mp4' },
+  { id: 5, text: 'no', video: 'no.mp4' },
+  { id: 6, text: 'hello', image: 'Hello.jpg' },
+  { id: 7, text: 'More', video: 'more.mp4' },
+  { id: 8, text: 'Bye', image: 'Hello.jpg' },
+  { id: 9, text: 'Hoppin John', image: 'hppinJohn.png' },
+  { id: 10, text: 'Help', video: 'help.mp4' },
+  { id: 11, text: 'gumbo', image: 'Gumbo.jpg' },
+  { id: 12, text: 'cornbread', image: 'cornbread.png' },
+  { id: 13, text: 'Thank you', video: 'thank_you_emoji.mp4' },
+  { id: 14, text: 'I love you', image: 'lluvU.jpg' },
+  { id: 15, text: 'Please braid my hair', image: 'braid.jpg' },
+  { id: 16, text: 'Truly blessed and highly favored', image: 'TbHF.jpg' },
+  { id: 17, text: 'YouTube Gospel Music', image: 'YouTube.png' },
 ];
 
 function App() {
   const [sentence, setSentence] = useState([]);
 
-  const handleSymbolClick = (symbols) => {
-    setSentence((prev) => [...prev, symbols.text]);
-
-    const sentence = new SpeechSynthesisUtterance(symbols.text);
-    speechSynthesis.speak(sentence);
+  const handleSymbolClick = (symbol) => {
+    if (symbol.text === 'Gullah Dialect' || symbol.text === 'YouTube Gospel Music') return;
+    setSentence((prev) => [...prev, symbol.text]);
+    const utterance = new SpeechSynthesisUtterance(symbol.text);
+    speechSynthesis.speak(utterance);
   };
 
-  const handleTalk = () => {
-    const sentence = new SpeechSynthesisUtterance(sentence.join(' '));
-    speechSynthesis.talk(sentence);
+  const handleSpeak = () => {
+    const utterance = new SpeechSynthesisUtterance(sentence.join(' '));
+    speechSynthesis.speak(utterance);
   };
 
   const handleClear = () => {
@@ -41,54 +43,93 @@ function App() {
   };
 
   return (
-    <div className="container py-4"> 
-      <h1 className="text-center mb-4">AAC Device</h1>
-
-      <div className="row g-3">
-        {symbols.map((symbols) => (
-          <div className="col-6 col-md-3" key={symbols.id}>
-            <div
-              className="card text-center h-100 shadow-sm"
-              onClick={() => handleSymbolClick(symbols)}
-              style={{ cursor: 'pointer' }}
-            >
-              {symbols.image && (
-                <img src={symbols.image} alt={symbols.text} className="card-img-top" />
-              )}
-              {symbols.video && (
-                <video src={symbols.video} className="card-img-top" controls />
-              )}
-              <div className="card-body">
-                <p className="card-text fw-bold">{symbols.text}</p>
+    <>
+      <Navbar />
+      <div className="container py-4">
+        <h1 className="text-center mb-4">AAC Device</h1>
+  
+        <div className="row g-3">
+          {symbols.map((symbol) => (
+            <div className="col-6 col-md-3" key={symbol.id}>
+              <div
+                className="card text-center h-100 shadow-sm"
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleSymbolClick(symbol)}
+              >
+                {symbol.text === 'YouTube Gospel Music' ? (
+                  <a
+                    href="https://www.youtube.com/results?search_query=gospel+music"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={symbol.image}
+                      alt={symbol.text}
+                      className="card-img-top"
+                    />
+                  </a>
+                ) : (
+                  <>
+                    {symbol.image && (
+                      <img
+                        src={symbol.image}
+                        alt={symbol.text}
+                        className="card-img-top"
+                      />
+                    )}
+                    {symbol.video && (
+                      <video
+                        src={symbol.video}
+                        className="card-img-top"
+                        controls
+                      />
+                    )}
+                  </>
+                )}
+                <div className="card-body">
+                  <p className="card-text fw-bold">{symbol.text}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-4"> 
-        <h5>Sentence:</h5>
-        <div className="p-3 border bg-light rounded">{sentence.join(' ')}</div>
-
-        <div className="mt-3 d-flex gap-3">
-          <button className="btn btn-primary" onClick={handleTalk}><image src="Speak_Button.png" alt="Speak" style={{ width: '24px', marginRight: '8px' }}>Speak</image></button>
-          <button className="btn btn-outline-danger" onClick={handleClear}>Clear</button>
-          <button className="btn btn-secondary" onClick={() => setSentence([])}>
-  <img src="settings.jpg" alt="Settings" style={{ width: '24px', marginRight: '8px' }} />
-  Settings
-</button>
+          ))}
         </div>
+  
+        <div className="mt-4">
+          <h5>Sentence:</h5>
+          <div className="p-3 border bg-light rounded">
+            {sentence.join(' ')}
+          </div>
+  
+          <div className="mt-3 d-flex gap-3 flex-wrap">
+            <button className="btn btn-primary" onClick={handleSpeak}>
+              Speak
+            </button>
+            <button className="btn btn-outline-danger" onClick={handleClear}>
+              Clear
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => setSentence([])}
+            >
+              <img
+                src="settings.jpg"
+                alt="Settings"
+                style={{ width: '24px', marginRight: '8px' }}
+              />
+              Settings
+            </button>
+          </div>
+        </div>
+  
+        <footer className="watermark mt-5 text-center">
+          © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
+        </footer>
       </div>
-      <footer className="watermark">
-      <div><Link to="/Keyboard" className="btn btn-primary">Open Keyboard</Link></div>
-  © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
-
-</footer>
-    </div>
+    </>
   );
 }
 
-
 export default App;
 
-//Dedicated to my grandmother Matilda White, who had a stroke in 1993. Dedicated in memory of my mother,Alethea W. Jackson, 1944-2025
+
+//Dedicated in loving memory of my mother Alethea W. Jackson, and my grandmother Matilda White. Thank you to my family for keeping Gullah culture and morals instilled in me that I hold near an dear as an adult.

@@ -1,0 +1,33 @@
+.symbol-board {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .symbol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 10px;
+  }
+  
+  .symbol-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .symbol-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .symbol-label {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
