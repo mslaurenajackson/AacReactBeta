@@ -10,7 +10,7 @@ const symbols = [
   { id: 1, text: 'yes', video: '/yes.mp4' },
   { id: 2, text: 'drink', image: '/drink.png'},
   { id: 3, text: 'burger', image: '/burger.png' },
-  { id: 4, text: 'swim', image: '/swim.png'},
+  { id: 4, text: 'swim', image: '/Swim.png'},
   { id: 5, text: 'more', video: '/more.mp4' },
   { id: 6, text: 'no', video: '/no.mp4'},
   { id: 7, text: 'like', image: '/like.png'},
@@ -81,10 +81,6 @@ function HomePage() {
           </button>
           <button className="btn btn-outline-danger" onClick={handleClear}>
             Clear
-          </button>
-          <button className="btn btn-secondary" onClick={() => setSentence([])}>
-            <img src="settings.jpg" alt="Settings" style={{ width: '24px', marginRight: '8px' }} />
-            Settings
           </button>
         </div>
       </div>
