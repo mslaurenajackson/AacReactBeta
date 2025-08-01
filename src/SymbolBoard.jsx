@@ -23,6 +23,12 @@ import { fetchSymbols } from './utils/symbolsAPI';  // API in utils/symbolsApi.j
     }
   };
 
+  const handleSelect = (symbol) => {
+    console.log('Selected symbol:', symbol);
+    // Define onSelect locally
+  };
+  
+
   return (
     <div className="symbol-board">
       <Navbar />
@@ -41,7 +47,14 @@ import { fetchSymbols } from './utils/symbolsAPI';  // API in utils/symbolsApi.j
 
       <div className="symbol-grid">
         {symbols.map(sym => (
-          <SymbolCard key={sym.id} symbol={sym} />
+        <img
+        key={sym.id}
+        src={sym.attachments[0]?.previewUrl || 'fallback-image.jpg'}
+        alt={sym.keyword || 'No keyword'}
+        onClick={() => handleSelect(sym)}
+        className="symbol-thumb"
+      />
+        
         ))}
       </div>
     </div>

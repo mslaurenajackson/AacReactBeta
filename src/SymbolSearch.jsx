@@ -10,12 +10,13 @@ function SymbolSearch({ onSelect }) {
       const tokenRes = await axios.get('/api/symbols/token');
       const token = tokenRes.data.access_token;
 
-      const symRes = await axios.get('https://www.opensymbols.org/api/v2/search', {
+      const studioId = 'public'; // I did some homework and this is the studio ID for public symbols
+      const symRes = await axios.get(`https://api.opensymbols.com/v2/search/${studioId}`, {
         params: { q: query },
         headers: { Authorization: `Bearer ${token}` }
       });
 
-      setResults(symRes.data.symbols || []);
+      setResults(symRes.data.searchResults || []);
     } catch (e) {
       console.error('Search error', e);
     }
@@ -37,10 +38,10 @@ function SymbolSearch({ onSelect }) {
           results.map((sym) => (
             <img
               key={sym.id}
-              src={sym.image_url || 'fallback-image-url.jpg'}
-              alt={sym.keyword || 'No keyword'}
-              onClick={() => onSelect(sym)}
+              src={sym.attachments[0]?.previewUrl || 'Lost_in_Space.png'}
+              alt={sym.keyword || 'symbol'}
               className="symbol-thumb"
+              onClick={() => onSelect(sym)} // ✅ added callback for selection
             />
           ))
         )}

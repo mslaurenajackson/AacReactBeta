@@ -44,7 +44,7 @@ function Navbar() {
                             <Link className="nav-link" to="/SymbolBoard">Symbol Search</Link>
                         </li>
                     </ul>
-                    {/* Add a search bar and button */}
+                    {/* Take this out - confusing */}
                     <div className="d-flex ms-3">
                         <input
                             type="text"

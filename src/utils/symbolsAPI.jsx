@@ -18,7 +18,7 @@ export async function getAccessToken() {
 
 // 2) Fetch symbols using the v2 search endpoint
 export async function fetchSymbols(term) {
-  const studioId = import.meta.env.VITE_OPENSYMBOLS_STUDIO_ID;
+  const studioId = 'public';
 
   if (!studioId) {
     throw new Error('Studio ID is missing. Please set VITE_OPENSYMBOLS_STUDIO_ID in your .env file.');
