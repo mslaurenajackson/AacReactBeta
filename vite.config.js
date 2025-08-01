@@ -5,9 +5,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3030,
+    proxy: {
+      '/api': {
+        target: 'https://api.opensymbols.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
-  preview: {
-    port: 8080,
-  },
-})
+});
+
+//Added 8/1/25 to prevent CORS issues with OpenSymbols API

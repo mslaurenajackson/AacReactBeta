@@ -41,10 +41,10 @@ function Navbar() {
                             <Link className="nav-link" to="/UserSymbolPage">My Personal Page</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/SymbolBoard">Symbol Search</Link>
+                            <Link className="nav-link" to="/SymbolSearch">Symbol Search</Link>
                         </li>
                     </ul>
-                    {/* Take this out - confusing */}
+                    {/* Take this out - confusing 7/31/25*/}
                     <div className="d-flex ms-3">
                         <input
                             type="text"

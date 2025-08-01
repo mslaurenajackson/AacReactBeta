@@ -2,6 +2,8 @@
 export async function getAccessToken() {
   const apiKey = import.meta.env.VITE_OPENSYMBOLS_API_KEY;
 
+  console.log('API Key:', apiKey);//REMOVE ME - Used for testing purposes only
+
   if (!apiKey) {
     throw new Error('API key is missing. Please set VITE_OPENSYMBOLS_API_KEY in your .env file.');
   }
@@ -25,6 +27,7 @@ export async function fetchSymbols(term) {
   }
 
   const token = await getAccessToken();
+  console.log('Token:', token);  //REMOVE ME 
 
   const res = await fetch(
     `https://api.opensymbols.com/v2/search/${studioId}?q=${encodeURIComponent(term)}`,
@@ -35,6 +38,9 @@ export async function fetchSymbols(term) {
       },
     }
   );
+
+  const resText = await res.text(); // REMOVE ME - Test purposes only!
+  console.log('Raw response:', resText); 
 
   if (!res.ok) {
     const errorText = await res.text();

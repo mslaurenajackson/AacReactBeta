@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from './components/NavBar';
-import SymbolSearch from './SymbolSearch'; 
-import { fetchSymbols } from './utils/symbolsAPI';  // API in utils/symbolsApi.js
+import SymbolSearch from '../SymbolSearch'; 
+import { fetchSymbols } from '../utils/symbolsAPI';  // API in utils/symbolsApi.js
 
  function SymbolBoard() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -56,6 +55,7 @@ import { fetchSymbols } from './utils/symbolsAPI';  // API in utils/symbolsApi.j
       />
         
         ))}
+        
       </div>
     </div>
   );
