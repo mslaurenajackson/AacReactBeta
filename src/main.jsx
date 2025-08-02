@@ -6,9 +6,8 @@ import HomePage from './HomePage';
 import Keyboard from './Keyboard';
 import Settings from './Settings';
 import UserSymbolPage from './UserSymbolPage';
-import SymbolSearch from './SymbolSearch';
+import LocalSearch from './components/LocalSearch';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -17,9 +16,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Route path="/" element={<HomePage />} />
     <Route path="/Keyboard" element={<Keyboard />} />
     <Route path="/Gullah" element={<App />} />
-    <Route path='/Settings' element={<Settings />} />
     <Route path="/UserSymbolPage" element={<UserSymbolPage />} />
-    <Route path="/SymbolSearch" element={<SymbolSearch />} />
+    <Route path="/LocalSearch" element={<LocalSearch />} />
     <Route
   path="/Settings"
   element={

@@ -3,6 +3,7 @@ import {fetchSymbols} from './utils/symbolsAPI'; // searches symbols from symbol
 import saveBoard from './components/saveBoard';
 import Navbar from './components/NavBar'; 
 
+
 const SymbolSearch = () => {
   const [query, setQuery] = useState('');
   const [symbols, setSymbols] = useState([]);
@@ -57,3 +58,4 @@ const SymbolSearch = () => {
 };
 
 export default SymbolSearch;
+

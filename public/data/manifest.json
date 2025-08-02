@@ -1,0 +1,27 @@
+{
+    "name": "Custom Symbol Set",
+    "description": "Symbols for red, blue, eat, and cup.",
+    "symbols": [
+      {
+        "id": "red",
+        "name": "Red",
+        "image_url": "/images/red.png"
+      },
+      {
+        "id": "blue",
+        "name": "Blue",
+        "image_url": "/images/blue.png"
+      },
+      {
+        "id": "stop",
+        "name": "stop",
+        "image_url": "/images/stop.png"
+      },
+      {
+        "id": "cup",
+        "name": "Cup",
+        "image_url": "/images/cup.png"
+      }
+    ]
+  }
+  

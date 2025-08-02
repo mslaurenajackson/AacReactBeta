@@ -41,7 +41,7 @@ function Navbar() {
                             <Link className="nav-link" to="/UserSymbolPage">My Personal Page</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/SymbolSearch">Symbol Search</Link>
+                            <Link className="nav-link" to="LocalSearch">Symbol Search</Link>
                         </li>
                     </ul>
                     {/* Take this out - confusing 7/31/25*/}
