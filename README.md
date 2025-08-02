@@ -31,12 +31,13 @@ Browser Routing: Seamless navigation using <Routes> and <Link> components
 
 Lauren A. Jackson M.S. CCC-SLP
 
+Link 🔗  to PowerPoint presentation: https://www.canva.com/design/DAGsP8VCor4/N_4gt9R8WkiD8epRCtmYCQ/edit?utm_content=DAGsP8VCor4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-📱 
+
+📱 <img width="1093" height="766" alt="AAC_BETA_Screenshot1" src="https://github.com/user-attachments/assets/06a7aada-1f61-4bdd-bf64-d4e1eef0ba00" />
 
 
-<img width="1440" height="716" alt="Screenshot 2025-07-29 at 5 14 20 PM" src="https://github.com/user-attachments/assets/0fa321f9-dce2-4a72-9893-19a81fccb4e6" />
-<img width="1440" height="716" alt="Screenshot 2025-07-29 at 5 14 11 PM" src="https://github.com/user-attachments/assets/d402096f-73cc-45bc-9d24-2659effd0e53" />
-<img width="1440" height="716" alt="Screenshot 2025-07-29 at 5 14 00 PM" src="https://github.com/user-attachments/assets/7e3544a7-9aa5-452b-ab10-7e1e3f30d7c9" /><img width="1440" height="716" alt="Screenshot 2025-07-29 at 5 13 36 PM" src="https://github.com/user-attachments/assets/728d88b5-c63e-4300-be59-3d1ec53f4c7e" />
 
-<img width="1440" height="716" alt="Screenshot 2025-07-29 at 5 13 42 PM" src="https://github.com/user-attachments/assets/ec0c2f87-7eb5-4d70-8574-69ea6abfc71f" />
+<img width="1093" height="766" alt="AAC_BETA_Screenshot2" src="https://github.com/user-attachments/assets/3bc5d590-bd31-43e2-9c5a-29607ff92c81" />
+<img width="1093" height="766" alt="AAC_BETA_Screenshot" src="https://github.com/user-attachments/assets/0b6591ed-9ecc-4ee0-8573-92ecf9304bf5" />
+<img width="1093" height="766" alt="AAC_BETA_Screenshot3" src="https://github.com/user-attachments/assets/f777d429-86a4-4cf5-8330-af051294a15b" />
