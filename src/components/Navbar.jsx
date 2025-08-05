@@ -1,19 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { fetchSymbols } from '../utils/symbolsAPI'; // Ensure this matches the export in symbolsAPI.jsx
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function Navbar() {
-    const [query, setQuery] = useState('');
-
-    const handleSearch = async () => {
-        try {
-            const symbols = await fetchSymbols(query); // Use the query state
-            console.log('Fetched symbols:', symbols);
-        } catch (error) {
-            console.error('Error fetching symbols:', error);
-        }
-    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white mb-4">
@@ -41,22 +30,9 @@ function Navbar() {
                             <Link className="nav-link" to="/UserSymbolPage">My Personal Page</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="LocalSearch">Symbol Search</Link>
+                            <Link className="nav-link" to="/LocalSearch">Symbol Search</Link>
                         </li>
                     </ul>
-                    {/* Take this out - confusing 7/31/25*/}
-                    <div className="d-flex ms-3">
-                        <input
-                            type="text"
-                            className="form-control me-2"
-                            placeholder="Search symbols"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)} // Update query state
-                        />
-                        <button className="btn btn-outline-success" onClick={handleSearch}>
-                            Search
-                        </button>
-                    </div>
                 </div>
             </div>
         </nav>

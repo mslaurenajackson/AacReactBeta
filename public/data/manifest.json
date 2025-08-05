@@ -13,6 +13,11 @@
         "image_url": "/images/blue.png"
       },
       {
+        "id": "green",
+        "name": "Green",
+        "image_url": "/images/green.png"
+      },
+      {
         "id": "stop",
         "name": "stop",
         "image_url": "/images/stop.png"
