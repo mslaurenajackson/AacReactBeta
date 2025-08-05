@@ -18,7 +18,10 @@ function Navbar() {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/gullah">Gullah Dialect</Link>
+                            <Link className="nav-link" to="/Login">Login</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/App">Gullah Dialect</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/Keyboard">Keyboard</Link>
