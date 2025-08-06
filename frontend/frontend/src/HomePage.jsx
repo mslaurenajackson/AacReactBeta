@@ -2,7 +2,7 @@ import React, {  useState } from 'react';
 import { Link } from 'react-router-dom'; // Use Link for navigation
 import './App.css'; 
 import App from './App.jsx';
-import Navbar from './components/NavBar';
+import Navbar from './components/NavBar.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

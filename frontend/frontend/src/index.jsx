@@ -1,3 +1,4 @@
+import './index.css'; 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -8,7 +9,8 @@ import Settings from './Settings';
 import UserSymbolPage from './UserSymbolPage';
 import LocalSearch from './components/LocalSearch';
 import Login from './Login';  
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from './components/NavBar';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -38,3 +40,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 //added isOpen prop to Settings route to avoid error
+
+
+

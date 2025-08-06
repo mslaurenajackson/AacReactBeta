@@ -42,10 +42,42 @@ function App() {
   const handleClear = () => {
     setSentence([]);
   };
+  const testBackend = async () => {
+    try {
+      const response = await fetch('/api/health');
+      const data = await response.json();
+      console.log('Backend response:', data);
+      alert(`Backend says: ${data.message}`);
+    } catch (error) {
+      console.error('Backend connection failed:', error);
+      alert('Could not connect to backend');
+    }
+  };
 
   return (
     <>
       <Navbar />
+      <div className="App">
+      <header className="App-header">
+        <h1>AAC Device Frontend</h1>
+        <p>Frontend is working!</p>
+        <button onClick={testBackend} style={{
+          padding: '10px 20px',
+          fontSize: '16px',
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }}>
+          Test Backend Connection
+        </button>
+        <div style={{ marginTop: '20px' }}>
+          <p>Frontend running on: {window.location.origin}</p>
+          <p>Backend should be on: http://localhost:3001</p>
+        </div>
+      </header>
+    </div>
       <div className="container py-4">
         <h1 className="text-center mb-4">AAC Device</h1>
   
