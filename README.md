@@ -34,9 +34,8 @@ Lauren A. Jackson M.S. CCC-SLP
 Link 🔗  to PowerPoint presentation: https://www.canva.com/design/DAGsP8VCor4/N_4gt9R8WkiD8epRCtmYCQ/edit?utm_content=DAGsP8VCor4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 
-<img width="1123" height="752" alt="HomePa<img width="1123" height="752" alt="Login" src="https://github.com/user-attachments/assets/bad3284b-cb72-46e3-981f-e5c6818dfe<img width="1407" height="776" alt="GullahDialect" src="https://github.com/user-attachments/assets/05d72fde-1527-4246-80fe-044d9087f96f" />
-f7" />
-ge" src="https://github.com/user-attachments/assets/5b89561b-5032-41eb-8102-e949c28ebc9c" />
+<img width="1407" height="776" alt="GullahDialect" src="https://github.com/user-attachments/assets/05d72fde-1527-4246-80fe-044d9087f96f" />
+
 <img width="1407" height="776" alt="Keyboard" src="https://github.com/user-attachments/assets/2c45b5cc-abd4-41d8-b2c1-a87ae79dff8b" />
 
 <img width="1091" height="678" alt="Login" src="https://github.com/user-attachments/assets/5f86028c-e387-42bb-9355-046ad286df82" />
