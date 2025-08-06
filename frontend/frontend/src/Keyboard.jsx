@@ -90,8 +90,8 @@ function Keyboard() {
           <button onClick={handleDelete} className="btn delete">Delete</button>
         </div>
 
-        <footer className="watermark">
-          © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP | AAC Prototype
+        <footer className="watermark mt-5 text-center text-black position-bottom-0 w-100">
+          © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
         </footer>
       </div>
     </>

@@ -172,6 +172,9 @@ function Login() {
           </div>
 
         )}
+         <footer className="watermark mt-5 text-center text-white position-absolute bottom-0 w-100">
+          © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
+        </footer>
 
       </div>
 

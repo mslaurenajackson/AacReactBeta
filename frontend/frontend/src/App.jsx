@@ -127,7 +127,7 @@ function App() {
           </div>
         </div>
   
-        <footer className="watermark mt-5 text-center">
+        <footer className="watermark mt-5 text-center text-white">
           © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
         </footer>
       </div>

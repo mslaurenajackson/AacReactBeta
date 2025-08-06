@@ -84,9 +84,9 @@ function HomePage() {
           </button>
         </div>
       </div>
-      <footer className="watermark">
-        © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
-      </footer>
+      <footer className="watermark mt-5 text-center text-white">
+          © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
+        </footer>
     </div>
   );
 }

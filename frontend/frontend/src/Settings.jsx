@@ -68,6 +68,9 @@ const Settings = ({ onThemeChange, onFontSizeChange, onImageUpload }) => {
           />
         </li>
       </ul>
+      <footer className="watermark mt-5 text-center text-white">
+          © {new Date().getFullYear()} Lauren A. Jackson M.S. CCC-SLP
+        </footer>
     </div>
     </>
   );
