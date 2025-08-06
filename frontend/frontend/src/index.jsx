@@ -9,7 +9,6 @@ import Settings from './Settings';
 import UserSymbolPage from './UserSymbolPage';
 import LocalSearch from './components/LocalSearch';
 import Login from './Login';  
-import Navbar from './components/NavBar';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
@@ -19,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Route path="/" element={<HomePage />} />
     <Route path="/Login" element={<Login />} />
     <Route path="/Keyboard" element={<Keyboard />} />
-    <Route path="/Gullah" element={<App />} />
+    <Route path="/App" element={<App />} />
     <Route path="/UserSymbolPage" element={<UserSymbolPage />} />
     <Route path="/LocalSearch" element={<LocalSearch />} />
     <Route

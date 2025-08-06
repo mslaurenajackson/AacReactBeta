@@ -41,7 +41,7 @@ const LocalSearch = () => {
           placeholder="Search for a symbol…"
           style={{ padding: '8px', marginRight: '10px' }}
         />
-        <button type="submit">Search</button>
+        <button type="submit" class="btn btn-light">Search</button>
       </form>
 
       <div style={{ padding: '20px' }}>
