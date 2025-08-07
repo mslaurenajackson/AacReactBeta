@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { signOut } from '../utils/auth';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function Navbar() {
@@ -35,6 +36,9 @@ function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/LocalSearch">Symbol Search</Link>
                         </li>
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link" href="#" onclick="signOut()">Sign Out</a>
+                        </div>
                     </ul>
                 </div>
             </div>
