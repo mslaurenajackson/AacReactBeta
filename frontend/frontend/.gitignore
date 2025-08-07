@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .env
 .env
+frontend/backend_2/aac_app.db
+*.db
+**/*.db
