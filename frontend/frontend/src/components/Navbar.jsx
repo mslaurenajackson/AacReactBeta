@@ -46,9 +46,10 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <button 
+                                class="btn btn-warning"
                                 className="nav-link btn btn-link" 
                                 onClick={signOut}
-                                style={{ border: 'none', background: 'none', color: 'inherit' }}
+                                style={{ border: 'none', background: 'gray', color: 'inherit' }}
                             >
                                 Sign Out
                             </button>
