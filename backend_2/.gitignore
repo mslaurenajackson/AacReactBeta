@@ -1,1 +1,3 @@
 .env
+*.db
+backend_2/aac_app.db
