@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { signOut } from '../utils/auth';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function Navbar() {
+    // Define the signOut function inside the component
+    const signOut = () => {
+        // Clear any stored authentication tokens/session data
+        localStorage.removeItem('authToken');
+        sessionStorage.clear();
+        
+        // Redirect to login page or home
+        window.location.href = '/Login';
+    };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white mb-4">
@@ -36,9 +44,15 @@ function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/LocalSearch">Symbol Search</Link>
                         </li>
-                        <div class="navbar-nav ms-auto">
-                            <a class="nav-link" href="#" onclick="signOut()">Sign Out</a>
-                        </div>
+                        <li className="nav-item">
+                            <button 
+                                className="nav-link btn btn-link" 
+                                onClick={signOut}
+                                style={{ border: 'none', background: 'none', color: 'inherit' }}
+                            >
+                                Sign Out
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
