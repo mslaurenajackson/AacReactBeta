@@ -1,0 +1,96 @@
+// init-db.js - Run this once to set up your database
+const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
+require('dotenv').config();
+
+const dbPath = process.env.DB_PATH || './aac_app.db';
+
+console.log('Initializing database...');
+
+const db = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error('Error opening database:', err);
+    process.exit(1);
+  } else {
+    console.log('Connected to SQLite database:', dbPath);
+  }
+});
+
+// Create all tables
+db.serialize(() => {
+  // Users table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS users (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      uuid TEXT UNIQUE NOT NULL,
+      email TEXT UNIQUE NOT NULL,
+      password TEXT NOT NULL,
+      first_name TEXT,
+      last_name TEXT,
+      role TEXT DEFAULT 'user',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `, (err) => {
+    if (err) console.error('Error creating users table:', err);
+    else console.log('✓ Users table created/verified');
+  });
+
+  // Chat sessions table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS chat_sessions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      uuid TEXT UNIQUE NOT NULL,
+      user_uuid TEXT NOT NULL,
+      title TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_uuid) REFERENCES users (uuid)
+    )
+  `, (err) => {
+    if (err) console.error('Error creating chat_sessions table:', err);
+    else console.log('✓ Chat sessions table created/verified');
+  });
+
+  // Chat messages table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS chat_messages (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      uuid TEXT UNIQUE NOT NULL,
+      session_uuid TEXT NOT NULL,
+      role TEXT NOT NULL CHECK (role IN ('user', 'assistant')),
+      content TEXT NOT NULL,
+      timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (session_uuid) REFERENCES chat_sessions (uuid)
+    )
+  `, (err) => {
+    if (err) console.error('Error creating chat_messages table:', err);
+    else console.log('✓ Chat messages table created/verified');
+  });
+
+  // AAC symbols table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS aac_symbols (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      uuid TEXT UNIQUE NOT NULL,
+      user_uuid TEXT NOT NULL,
+      category TEXT,
+      symbol_text TEXT NOT NULL,
+      image_url TEXT,
+      audio_url TEXT,
+      position_x INTEGER,
+      position_y INTEGER,
+      color TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_uuid) REFERENCES users (uuid)
+    )
+  `, (err) => {
+    if (err) console.error('Error creating aac_symbols table:', err);
+    else console.log('✓ AAC symbols table created/verified');
+  });
+
+  console.log('\nDatabase initialization complete!');
+  console.log('You can now start your server with: npm run dev');
+});
+
+db.close();

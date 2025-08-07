@@ -1,0 +1,43 @@
+{
+  "name": "aacdevice",
+  "private": true,
+  "version": "10.0.0",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "init-db": "node init-db.js"
+  },
+
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.11.0",
+    "bootstrap": "^5.3.7",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.7",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.1",
+    "dotenv": "^16.3.1",
+    "howler": "^2.2.4",
+    "icons": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.6.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "vite": "^6.3.5",
+    "nodemon":"^3.0.1"
+  },
+  "keywords": ["express", "api", "aac", "sqlite"],
+  "author": "Lauren Alethea Jackson",
+  "license": "MIT"
+}
