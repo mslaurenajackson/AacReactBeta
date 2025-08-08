@@ -27,3 +27,4 @@ dist-ssr
 frontend/backend_2/aac_app.db
 *.db
 **/*.db
+.vercel
