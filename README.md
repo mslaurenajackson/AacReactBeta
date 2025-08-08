@@ -7,16 +7,26 @@ This project is a React.js prototype of an Augmentative and Alternative Communic
 🧠 Purpose
 To create a digital AAC tool that offers voice output when a symbol or letter is touched, auditory output via synthesized voice, and a customizable communication interface.
 
+📖 User Stories
+
+- As a speech-language pathologist, I want to create customizable symbol boards so that I can tailor AAC tools to clients in need.
+- As a child user, I want to tap a symbol and hear a voice output so that I can communicate effectively and code switch between SAE and Gullah dialect.
+- As an adult with paralysis, I want to easily use a keyboard so that I can participate in daily living activities.
+
+
 🎨 Design
 A Figma design prototype is available here:
 AAC Prototype Design in Figma - original design features drag and drop symbols
 
 🧰 Technologies Used
-React JS – Front-end framework
-React Router DOM – For page navigation and routing
-Bootstrap – Used for grid layout and responsive styling
-Howler.js / VoiceRSS API – For speech synthesis (text-to-speech)
-Custom CSS – For theming and styling symbol buttons and interaction areas
+
+- React JS (frontend)
+- Bootstrap (styling)
+- Supabase (authentication & Postgres database)
+- React Router DOM (navigation)
+- Howler.js / VoiceRSS API (speech synthesis)
+- Custom CSS
+
 
 🔑 Key Features
 Click to speak features: User can touch a letter or symbol for it to synthesize speech
