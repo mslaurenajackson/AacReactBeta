@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './components/NavBar';
-import { supabase } from '../../../backend_2/supabase.js';
-
-
+import { supabase } from "./lib/supabase.js";
 
 
 function Login() {
